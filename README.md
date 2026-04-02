@@ -16,4 +16,8 @@ For instructions on running the code, please consult the README in each folder.
 This is the list of examples:
 
 * [01-hello-terraform](projects/01-hello-terraform) - Example of how to deploy a single server on AWS (Amazon Web Services) in free tier
+
+* [02-single-server](projects/02-single-server) - Example of how to deploy a deploying of single EC2 instance with nginx server on AWS (Amazon Web Services) in free tier
+
+* [03-create-s3-with-vars](projects/03-create-s3-with-vars) - Example of how to create s3 bucket with versioning enabled on AWS (Amazon Web Services) in free tier
      
