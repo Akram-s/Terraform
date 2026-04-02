@@ -1,4 +1,4 @@
-# single nginx server terraform script
+# creation of S3 bucket terraform script
 This folder contains example which demonstrates creation of single S3 bucket with versioning enabled
 
 This Terraform file creates single S3 bucket with versioning enabled on AWS (Amazon Web Services)
@@ -59,7 +59,37 @@ This Terraform file creates single S3 bucket with versioning enabled on AWS (Ama
   ```bash
   terraform init
   ```
+* Modify S3 bucket name.
 
+  Name of S3 bucket which is defined as an input variable bucket_name in vars.tf file.
+
+  If you want to modify the name of S3 bucket you will be able to do it in several ways:
+
+  * Loading variables from command line flags.
+
+      Run Terraform commands in this way:
+    ```bash
+      terraform plan -var 'bucket_name=s3-bucket-name'
+      terraform apply -var 'bucket_name=s3-bucket-name'
+    ```
+  * Loading variables from a file.
+
+      When Terraform runs it will look for a file called terraform.tfvars. You can populate this file with variable values that will be loaded when Terraform runs. An example for the content of the terraform.
+      ```bash
+      tfvars file:
+
+      bucket_name = "s3-bucket-name"
+      ```
+  * Loading variables from environment variables.
+
+     Terraform will also parse any environment variables that are prefixed with TF_VAR. You can create an environment variable TF_VAR_bucket_name:
+     ```bash
+     TF_VAR_bucket_name=s3-bucket-name
+     ```
+     
+  * Variable defaults.
+
+    Change the value of the default attribute of bucket_name input variable in vars.tf file.
 * Validate the changes.
 
   Run command:
@@ -79,7 +109,7 @@ This Terraform file creates single S3 bucket with versioning enabled on AWS (Ama
 * Test the deploy.
 
   When the `terraform apply` command completes, use the S3 bucket name printed as output and you should see the new S3 bucket created in AWS S3 console
-  
+
 * Clean up the resources created.
 
   When you have finished, run command:
